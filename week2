@@ -1,0 +1,7 @@
+df = pd.read_csv('https://raw.githubusercontent.com/selva86/datasets/master/Cars93_miss.csv')
+
+# Filter the 'Manufacturer', 'Model', and 'Type' columns for every 20th row starting from the 1st row
+filtered_data = df.iloc[::20, :][['Manufacturer', 'Model', 'Type']]
+
+# Display the filtered data
+print(filtered_data)
