@@ -1,0 +1,35 @@
+1.	How do you control for biases?
+ Biases can be controlled for through various methods such as:
+Randomization: Ensuring that samples are randomly selected can help mitigate biases.
+Stratification: Dividing the population into homogeneous subgroups and then taking random samples from each subgroup.
+Blinding: Keeping participants or analysts unaware of certain information to prevent bias.
+Using diverse datasets: Incorporating data from different sources or perspectives can help identify and mitigate biases.
+	2. What are confounding variables? 
+Confounding variables are factors that are correlated with both the independent and dependent variables in a study, making it difficult to determine the true relationship between them. Controlling for confounding variables is important in order to accurately assess the relationship between the variables of interest.
+	3. What is A/B testing? 
+A/B testing, also known as split testing, is a method used to compare two versions (A and B) of a webpage, app, or marketing campaign to determine which one performs better. It involves dividing users into two groups and exposing each group to a different version, then analyzing the results to determine which version is more effective in achieving the desired outcome.
+	4. When will you use Welch t-test?
+ The Welch t-test is used when comparing the means of two independent samples and the assumption of equal variances is violated. It is more robust than the Student's t-test when the sample sizes and/or variances of the two groups are unequal.
+	5. Hypothesis testing for customer service representative call time: 
+Given:
+Population mean (μ) = 6 minutes
+Sample mean (x̄) = 6.5 minutes
+Sample standard deviation (s) = 1.2 minutes
+Sample size (n) = 50
+Significance level (α) = 0.05
+We can perform a one-sample t-test:
+Null hypothesis (H0): μ = 6
+Alternative hypothesis (H1): μ > 6 (claim)
+Calculate the t-statistic using the formula: 𝑡=(𝑥ˉ−𝜇)/s/√n
+Compare the t-statistic to the critical t-value at α = 0.05 with 49 degrees of freedom. If the t-statistic is greater than the critical t-value, we reject the null hypothesis and conclude that there is sufficient evidence to support the claim.
+	6. Hypothesis testing for mean scores of two groups of students:
+ Given:
+Group A: 𝑥ˉ𝐴=75, 𝑠𝐴=8, nA=25
+Group B: 𝑥ˉ𝐵=78, 𝑠𝐵=7, 𝑛𝐵=30
+Significance level (α) = 0.05
+We can perform an independent samples t-test:
+Null hypothesis (H0): 𝜇𝐴=𝜇𝐵
+Alternative hypothesis (H1): 𝜇𝐴≠𝜇𝐵 (two-tailed test)
+Calculate the t-statistic using the formula for independent samples t-test: t = \frac{{\bar{x}_A - \bar{x}_B}}{{\sqrt{\frac{{s_A^2}}{{n_A}} + \frac{{s_B^2}}{{n_B}}}}
+Compare the t-statistic to the critical t-value at α = 0.05 with degrees of freedom calculated using the Welch-Satterthwaite equation. If the t-statistic is outside the critical range, we reject the null hypothesis and conclude that there is a significant difference in the mean scores of the two groups.
+
