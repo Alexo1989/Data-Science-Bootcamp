@@ -1,0 +1,61 @@
+#Using the glass.csv file on Github, answer the following questions-
+#1)Try different thresholds for computing predictions using 'Al' column. By default it is 0.5. Use predict_proba function to compute probabilities and then try custom thresholds and see their impact on Accuracy, Precision and Recall.
+#2)Do the same analysis for other columns
+#3)Fit a Logistic Regression Model on all features. Remember to preprocess data(eg. normalization and one hot encoding).
+
+
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+glass = pd.read_csv('glass.csv')
+glass.head()
+glass.Type.value_counts().sort_index()
+glass['household'] = glass.Type.map({1:0, 2:0, 3:0, 5:1, 6:1, 7:1})
+glass.household.value_counts()
+glass.sort_values( by = 'Al', inplace=True)
+X= np.array(glass.Al).reshape(-1,1)
+y = glass.household
+from sklearn.linear_model import LogisticRegression
+
+logreg = LogisticRegression()
+logreg.fit(X,y)
+pred = logreg.predict(X)
+logreg.coef_, logreg.intercept_
+glass.sort_values( by = 'Al', inplace=True)
+# Plot the class predictions.
+
+plt.scatter(glass.Al, glass.household)
+plt.plot(glass.Al, pred, color='red')
+plt.xlabel('al')
+plt.ylabel('household')
+logreg.predict_proba(X)[:15]
+# Store the predicted probabilities of class 1.
+glass['household_pred_prob'] = logreg.predict_proba(X)[:, 1]
+
+# Plot the predicted probabilities.
+plt.scatter(glass.Al, glass.household)
+plt.plot(glass.Al, glass.household_pred_prob, color='red')
+plt.xlabel('al')
+plt.ylabel('household')
+
+from sklearn import metrics
+cm = metrics.confusion_matrix(y_true=y, y_pred=pred)
+cm
+
+Accuracy = (cm[0,0]+ cm[1,1])/ (np.sum(cm))
+Accuracy
+
+Precision = (cm[1,1])/ (np.sum(cm[: , 1]))
+Precision
+
+Recall = (cm[1,1])/ (np.sum(cm[1,:]))
+Recall
+
+from sklearn.metrics import accuracy_score, precision_score, recall_score
+accuracy_score(y_true=y, y_pred=pred)
+
+precision_score(y_true=y, y_pred=pred)
+
+recall_score(y,pred)
